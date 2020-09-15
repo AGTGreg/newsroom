@@ -1,0 +1,25 @@
+html, body { height: 100%; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background-color: #ffffff;
+  color: #6f7f92;
+}
+#title h1 {
+  font-size: 23px;
+  font-weight: normal;
+}
+#title h1 span { font-weight: bold; }
+
+main>.contents {
+  background-color: #ffffff;
+}
+
+#log-console {
+  margin: 40px auto;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.jumbotron {
+  border-radius: 0;
+}

@@ -1,0 +1,58 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Newsroom</h1>
+            <p class="lead">News scraping...</p>
+            <hr class="my-4">
+            <p>Info</p>
+        </div>
+    </div>
+    
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div id="scraping-loading" class="text-center" style="display: none;">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p>Scraping in progress... Please wait.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <button id="get-latest-articles-btn" class="btn btn-success btn-lg">
+                Click to get the latest articles
+            </button>
+        </div>
+
+        <div id="log-console" class="row">
+            <div class="col-12">
+                <ul id="log-list" class="list-group">
+                    {% if log %}
+                        {% for log_entry in log %}
+                            <li class="list-group-item
+                                {% if log_entry.level == 'INFO' %}
+                                    list-group-item-info
+                                {% elif log_entry.level == 'ERROR' %}
+                                    list-group-item-danger
+                                {% elif log_entry.level == 'WARNING' %}
+                                    list-group-item-warning
+                                {% endif %}
+                            ">
+                                {{ log_entry.msg }}
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'journalist/main.js' %}"></script>
+{% endblock extra_js %}

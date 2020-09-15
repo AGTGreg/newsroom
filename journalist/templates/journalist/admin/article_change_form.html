@@ -1,0 +1,11 @@
+{% extends 'admin/change_form.html' %}
+{% load i18n %}
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+    <div class="submit-row list-group">
+        <input type="button" value="Translate" 
+            class="default" name="_translate"
+            onclick="window.location='{% url 'edit_article' original.pk %}';"
+        >
+    </div>
+{% endblock %}
